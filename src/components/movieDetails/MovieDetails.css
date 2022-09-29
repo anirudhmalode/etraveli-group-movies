@@ -1,0 +1,17 @@
+.movie_details_container{
+    position: relative;
+    height: calc(100vh - 60px);
+}
+
+.movie_details_blank{
+    position: absolute;
+    border: 1px dashed  rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.movie_detail{
+    padding: 20px;
+}

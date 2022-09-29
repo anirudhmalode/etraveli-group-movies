@@ -1,0 +1,9 @@
+.movies_header{
+    background-color: #e1f6ff;
+    padding: 6px 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.6)
+}
+
+.movies_list{
+    border-right: 1px solid #000000;
+}
