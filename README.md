@@ -1,3 +1,15 @@
+1. When the app is loaded, a list of the movies should be displayed as the image below shows:
+![etraveli1](https://user-images.githubusercontent.com/25454642/193211473-ba284d78-08e6-410d-b3be-878e7531d872.png)
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
