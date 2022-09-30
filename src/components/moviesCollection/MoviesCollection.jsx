@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchMovies } from "../../feature/movieSlice"; 
 
 const MoviesCollection = () => {
-  const { movies } = useSelector((state) => state.movies);
+  const { movies, loading } = useSelector((state) => state.movies);
   const dispatch = useDispatch();
 
   const [selectedMovie, setSelectedMovie] = useState(null);
@@ -52,6 +52,7 @@ const MoviesCollection = () => {
         <Grid item xs={7} className="movies_list">
           <MoviesList
             moviesData={searchedMovies}
+            loading={loading}
             onChangeMovie={handleChangeMovie}
           />
         </Grid>

@@ -1,7 +1,7 @@
 import React from "react";
 import "./MoviesList.css";
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -14,7 +14,7 @@ function createData(episode, movieName, director, date, opening_crawl) {
   return { episode, movieName, director, date, opening_crawl };
 }
 
-const MoviesList = ({ moviesData, onChangeMovie }) => {
+const MoviesList = ({ moviesData, loading, onChangeMovie }) => {
   const allMovies = moviesData.map((movie) =>
     createData(
       `Episode ${movie.episode_id}`,
@@ -26,9 +26,12 @@ const MoviesList = ({ moviesData, onChangeMovie }) => {
   );
   const handleSelectedMovie = (movie) => onChangeMovie(movie);
 
-  if(!moviesData.length) return <Box sx={{ textAlign: 'center' }}>
-  <CircularProgress />
-</Box> ;
+  if (!moviesData.length && loading)
+    return (
+      <Box sx={{ textAlign: "center" }}>
+        <CircularProgress />
+      </Box>
+    );
 
   return (
     <TableContainer>
@@ -79,7 +82,7 @@ const MoviesList = ({ moviesData, onChangeMovie }) => {
         </TableBody>
       </Table>
     </TableContainer>
-  )
+  );
 };
 
 export default MoviesList;
