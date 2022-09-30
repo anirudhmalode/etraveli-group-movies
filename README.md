@@ -1,14 +1,16 @@
-1. When the app is loaded, a list of the movies should be displayed as the image below shows:
+1. When the app is loaded, a list of the movies is being displayed as the image below shows:
 ![etraveli1](https://user-images.githubusercontent.com/25454642/193211473-ba284d78-08e6-410d-b3be-878e7531d872.png)
 
+2. There is a way to order the movies by Year or Episode as the select menu shows in the image below:
+![etraveli2](https://user-images.githubusercontent.com/25454642/193211631-84b0b382-514e-4a55-b1ff-a6b5f48ddbd8.png)
 
+3. When clicking on a movie in the list, a detailed view of it is being displayed in the right hand side of the application.
+![etraveli3](https://user-images.githubusercontent.com/25454642/193211716-3ec13fe7-7d7e-43b8-a668-62b92993a859.png)
 
+4. Additionally, There is a way to filter the movies by entering their name in the text input:
+![etraveli4](https://user-images.githubusercontent.com/25454642/193211808-2d53004a-7a18-480d-b6e8-bb117ac0b780.png)
 
-
-
-
-
-
+5. Tech stack being used for this project: Reactjs, Material UI, Redux, Basic(HTML, CSS)
 
 # Getting Started with Create React App
 
