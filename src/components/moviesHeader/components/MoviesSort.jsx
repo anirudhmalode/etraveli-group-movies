@@ -10,8 +10,8 @@ import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 
 const sortTypes = {
-  year: 'YEAR',
-  episode: 'EPISODE'
+  YEAR: 'YEAR',
+  EPISODE: 'EPISODE'
 }
 
 const MoviesSort = ({ onSort }) => {
@@ -53,12 +53,12 @@ const MoviesSort = ({ onSort }) => {
           <nav aria-label="secondary mailbox folders">
             <List>
               <ListItem disablePadding>
-                <ListItemButton onClick={() => onSort(sortTypes.episode)}>
+                <ListItemButton onClick={() => onSort(sortTypes.EPISODE)}>
                   <ListItemText primary="Episode" />
                 </ListItemButton>
               </ListItem>
               <ListItem disablePadding>
-                <ListItemButton onClick={() => onSort(sortTypes.year)}>
+                <ListItemButton onClick={() => onSort(sortTypes.YEAR)}>
                   <ListItemText primary="Year" />
                 </ListItemButton>
               </ListItem>

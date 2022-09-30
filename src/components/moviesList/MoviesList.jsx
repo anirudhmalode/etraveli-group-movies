@@ -1,5 +1,7 @@
 import React from "react";
 import "./MoviesList.css";
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -8,13 +10,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { Typography } from "@mui/material";
 
-function createData(
-  episode: String,
-  movieName: Number,
-  director: String,
-  date: Number,
-  opening_crawl: String
-) {
+function createData(episode, movieName, director, date, opening_crawl) {
   return { episode, movieName, director, date, opening_crawl };
 }
 
@@ -29,6 +25,10 @@ const MoviesList = ({ moviesData, onChangeMovie }) => {
     )
   );
   const handleSelectedMovie = (movie) => onChangeMovie(movie);
+
+  if(!moviesData.length) return <Box sx={{ textAlign: 'center' }}>
+  <CircularProgress />
+</Box> ;
 
   return (
     <TableContainer>
@@ -74,14 +74,12 @@ const MoviesList = ({ moviesData, onChangeMovie }) => {
               </TableRow>
             ))
           ) : (
-            <div>
-              <Typography variant="body2">No Movie Found!</Typography>
-            </div>
+            <Typography variant="body2">No Movie Found!</Typography>
           )}
         </TableBody>
       </Table>
     </TableContainer>
-  );
+  )
 };
 
 export default MoviesList;

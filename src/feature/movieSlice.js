@@ -2,34 +2,32 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const moviesAPI = `https://swapi.dev/api/films/?format=json`;
 
-const fetchMovies = createAsyncThunk("movies/fetchMovies", () => {
-  return fetch(moviesAPI).then(res => res.json()).then(json => json);
+export const fetchMovies = createAsyncThunk("movies/fetchMovies", async() => {
+  return fetch(moviesAPI).then(res => res.json());
 });
 
 const initialState = {
   movies: [],
   loading: true,
+  error: ""
 };
 
 const movieSlice = createSlice({
   name: "movies",
   initialState,
   extraReducers: {
-    [fetchMovies.loading]: (state) => {
-      return {
-        ...state,
-        loading: true,
-      };
+    [fetchMovies.pending]: (state) => {
+      state.loading =  true;
     },
     [fetchMovies.fulfilled]: (state, action) => {
-      console.log("ACTIONSSSSSSS", state, action)
-      return {
-        ...state,
-        loading: false,
-        movies: [...state.movies, action.payload.results],
-      };
+      state.loading = false;
+      state.movies = (!!action.payload && !!action.payload.results.length) ? action.payload.results : []
+    },
+    [fetchMovies.rejected]: (state) => {
+      state.loading = false;
+      state.error = "Error while fetching movies!"
     },
   },
 });
 
-export const movieReducer = movieSlice.reducer;
+export default movieSlice.reducer;
