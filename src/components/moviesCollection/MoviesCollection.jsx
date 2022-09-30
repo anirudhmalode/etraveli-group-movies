@@ -8,7 +8,7 @@ import MoviesList from "../moviesList/MoviesList";
 import { useSelector } from "react-redux";
 
 const MoviesCollection = () => {
-  const {movies} = useSelector(state => state);
+  const { movies } = useSelector((state) => state);
   console.log("MOOOOOOOOOO", movies);
   const moviesData =
     moviesRawData && !!moviesRawData.results ? moviesRawData.results : [];

@@ -3,11 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 const moviesAPI = `https://swapi.dev/api/films/?format=json`;
 
 const fetchMovies = createAsyncThunk("movies/fetchMovies", () => {
-  const movies = fetch(moviesAPI).then(res => res.json()).then(json => json);
-//   const jsonData = await response.json();
-//   const movies = await jsonData.results;
-//   console.log("MOVIES --->", movies);
-  return movies.results;
+  return fetch(moviesAPI).then(res => res.json()).then(json => json);
 });
 
 const initialState = {
@@ -26,10 +22,11 @@ const movieSlice = createSlice({
       };
     },
     [fetchMovies.fulfilled]: (state, action) => {
+      console.log("ACTIONSSSSSSS", state, action)
       return {
         ...state,
         loading: false,
-        movies: [...state.movies, action.payload],
+        movies: [...state.movies, action.payload.results],
       };
     },
   },
